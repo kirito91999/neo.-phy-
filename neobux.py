@@ -65,13 +65,13 @@ def mostrar_ganancia (tipo_usuario, anuncios_n, anuncios_m, media_rd, media_ra, 
     
 
 
-tipo_usuario = 1 # 0 standar 1 gold
+tipo_usuario = 0 # 0 standar 1 gold
 anuncios_n = 4 # anuncios validos naranja para el usuario
 anuncios_m = 19 # anuncios micro y morados del usuario
 media_rd = 2 # media del referido directo
-media_ra = 2 # media del referido alquilado
+media_ra = 1.6 # media del referido alquilado
 referidos_d = 1 # referidos directo
-referidos_a = 250# referidos alquilados
-costo_ra = 0.20 # referido alquilado mensual
+referidos_a = 3# referidos alquilados
+costo_ra = 0.25 # referido alquilado mensual
 
 mostrar_ganancia (tipo_usuario, anuncios_n, anuncios_m, media_rd, media_ra, referidos_a, referidos_d , costo_ra)
