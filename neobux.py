@@ -76,12 +76,19 @@ def mostrar_ganancia (tipo_usuario, anuncios_n, anuncios_m, media_rd, media_ra, 
 ##costo_ra = 0.25 # referido alquilado mensual
 
 
-tipo_usuario = int(input ('cuál es tu tipo de usuario (0 o 1)? '))
-anuncios_n = int( input ('cuantos anuncios validos naranjas usted ve diario: '))  
-referidos_d = int(input('cauntos referidos directos posee usted en su cuanta '))
-referidos_a = int(input('cauntos referidos  alquilados posee usted en su cuanta '))
-media_rd = int(input('cual es la media del los referido directo que usted posee'))
-media_ra = int(input('cual es la media del los referido alquilado que usted posee'))
-costo_ra = int(input('cuanto es el costo mensual todos de sus referido alquilados '))
+tipo_usuario = int(input ('cuál es tu tipo de usuario (0 o 1)?: '))
+anuncios_n = int( input ('cuantos anuncios validos naranjas usted ve diario: '))
+anuncios_m = int(input('cuantos anuncios validos morados o micro usted ve diario: '))
+referidos_d = int(input('cauntos referidos directos posee usted en su cuenta: '))
+media_rd = 0
+media_ra = 0
+costo_ra = 0
+if (referidos_d > 0):
+    media_rd = float(input('cual es la media del los referido directo que usted posee: '))
+referidos_a = int(input('cauntos referidos  alquilados posee usted en su cuenta: '))
+if (referidos_a > 0):
+    media_ra = float(input('cual es la media del los referido alquilado que usted posee: '))
+    costo_ra = float(input('cuanto es el costo mensual todos de sus referido alquilados: '))
+
 
 mostrar_ganancia (tipo_usuario, anuncios_n, anuncios_m, media_rd, media_ra, referidos_a, referidos_d , costo_ra)
