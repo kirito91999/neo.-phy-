@@ -1,8 +1,25 @@
 def a_morado (n=1,tipo=0):
-    """ Esta función calcula el valor de hacer n clicks en aun anuncio tipo
+    """ (int,int)-> float 
+
+    Esta función calcula el valor de hacer n clicks en aun anuncio tipo
     morado o gris (micro) de neobux.
     n es un valor entero y es la cantidad de clicks
     tipo es un valor INT vale 1 si es gold 0 si es standar
+
+    >>>a_morado()
+    0.001
+    >>>a_morado(5)
+    0.005
+    >>>a_morado(0)
+    0.0
+    >>>a_morado(0,0)
+    0.0
+    >>>a_morado(5,0)
+    0.005
+    >>>a_morado(0,1)
+    0.0
+    >>>a_morado(5,1)
+    0.005
     """
     if (tipo==0):
         click = 0.001
@@ -75,20 +92,23 @@ def mostrar_ganancia (tipo_usuario, anuncios_n, anuncios_m, media_rd, media_ra, 
 ##referidos_a = 3# referidos alquilados
 ##costo_ra = 0.25 # referido alquilado mensual
 
-
-tipo_usuario = int(input ('cuál es tu tipo de usuario (0 o 1)?: '))
-anuncios_n = int( input ('cuantos anuncios validos naranjas usted ve diario: '))
-anuncios_m = int(input('cuantos anuncios validos morados o micro usted ve diario: '))
-referidos_d = int(input('cauntos referidos directos posee usted en su cuenta: '))
-media_rd = 0
-media_ra = 0
-costo_ra = 0
-if (referidos_d > 0):
-    media_rd = float(input('cual es la media del los referido directo que usted posee: '))
-referidos_a = int(input('cauntos referidos  alquilados posee usted en su cuenta: '))
-if (referidos_a > 0):
-    media_ra = float(input('cual es la media del los referido alquilado que usted posee: '))
-    costo_ra = float(input('cuanto es el costo mensual todos de sus referido alquilados: '))
-
-
-mostrar_ganancia (tipo_usuario, anuncios_n, anuncios_m, media_rd, media_ra, referidos_a, referidos_d , costo_ra)
+continuar = True
+while (continuar):
+    tipo_usuario = int(input ('cuál es tu tipo de usuario (0 o 1)?: '))
+    anuncios_n = int( input ('cuantos anuncios validos naranjas usted ve diario: '))
+    anuncios_m = int(input('cuantos anuncios validos morados o micro usted ve diario: '))
+    referidos_d = int(input('cauntos referidos directos posee usted en su cuenta: '))
+    media_rd = 0
+    media_ra = 0
+    costo_ra = 0
+    if (referidos_d > 0):
+        media_rd = float(input('cual es la media del los referido directo que usted posee: '))
+    referidos_a = int(input('cauntos referidos  alquilados posee usted en su cuenta: '))
+    if (referidos_a > 0):
+        media_ra = float(input('cual es la media del los referido alquilado que usted posee: '))
+        costo_ra = float(input('cuanto es el costo mensual por referido alquilados: '))
+    mostrar_ganancia (tipo_usuario, anuncios_n, anuncios_m, media_rd, media_ra, referidos_a, referidos_d , costo_ra)
+    res=input('Desea volver a probar con otros datos (S/N): ').upper()
+    if (res == 'N'):
+        continuar = False
+    
