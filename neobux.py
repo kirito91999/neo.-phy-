@@ -153,18 +153,74 @@ def mostrar_ganancia (tipo_usuario, anuncios_n, anuncios_m, media_rd, media_ra, 
     print ("Para un usuario",txt,"con",referidos_d,"referidos directos y",referidos_a,"referidos alquilados")
     ganado = ganancia (tipo_usuario, anuncios_n, anuncios_m, media_rd, media_ra, referidos_a, referidos_d , costo_ra)
     print ("podemos estimar que ganara minimo",ganado,"$ al mes. \n\nGracias por elegir nuestro programa de jluna80 y kirito91999  para calcualr sus ganancias. es 100% gratis XD XD")
-    
 
+def calcula_costo_ra (referidos):
+    '''(int) -> float
+
+    Calcula el costo de los referidos en funcion de la cantidad de referidos alquilados que tenga una persona. Para este calculo aplica la tabla publicada en la
+    ayuda de la pagina de neobux donde:
+    referidos es un valor int que corresponde a los referidos alquilados.
+
+   
+    >>>calcula_costo_ra(0)
+    0.0
+    >>>calcula_costo_ra(1)
+    0.2
+    >>>calcula_costo_ra(250)
+    0.2
+    >>>calcula_costo_ra(251)
+    0.21
+    >>>calcula_costo_ra(500)
+    0.21
+    >>>calcula_costo_ra(501)
+    0.22
+    >>>calcula_costo_ra(750)
+    0.22
+    >>>calcula_costo_ra(751)
+    0.23
+    >>>calcula_costo_ra(1750)
+    0.26
+    >>>calcula_costo_ra(1751)
+    0.27
+    >>>calcula_costo_ra(3000)
+    0.27
+    '''
+
+    valor = 0.0
+       
+    if (referidos  >= 1):
+        valor = 0.2
+    if (referidos >= 251):
+        valor = 0.21
+    if (referidos >= 501):
+        valor = 0.22
+    if (referidos >= 751):
+        valor = 0.23
+    if (referidos >= 1001):
+        valor = 0.24
+    if (referidos >= 1251):
+        valor = 0.25
+    if (referidos > 1500):
+        valor = 0.26
+    if (referidos >= 1751):
+        valor = 0.27
+
+    return valor
+
+    
+    
+    
+        
 ##deja estas lineas asi comentadas como esta luego las usaremos
     
 ##tipo_usuario = 0 # 0 standar 1 gold
 ##anuncios_n = 4 # anuncios validos naranja para el usuario
-##anuncios_m = 19 # anuncios micro y morados del usuario
+##anuncios_m = 16 # anuncios micro y morados del usuario
 ##media_rd = 2 # media del referido directo
-##media_ra = 1.6 # media del referido alquilado
+##media_ra = 2 # media del referido alquilado
 ##referidos_d = 1 # referidos directo
 ##referidos_a = 3# referidos alquilados
-##costo_ra = 0.25 # referido alquilado mensual
+## #referido alquilado mensual # esto da 093$ como ganacia mensual
 
 
 import os
@@ -184,7 +240,7 @@ while (continuar):
     referidos_a = int(input('cauntos referidos  alquilados posee usted en su cuenta: '))
     if (referidos_a > 0):
         media_ra = float(input('cual es la media del los referidos alquilados que usted posee: '))
-        costo_ra = float(input('cuanto es el costo mensual de cada uno de sus referidos alquilados: '))
+        costo_ra = calcula_costo_ra (referidos_a)
     print ('\n')
     mostrar_ganancia (tipo_usuario, anuncios_n, anuncios_m, media_rd, media_ra, referidos_a, referidos_d , costo_ra)
     res=input('\nDesea volver a probar con otros datos (S/N): ').upper()
